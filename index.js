@@ -1,1 +1,1 @@
-module.exports = require('./lib/express-async-await-errors')
+module.exports = require('./lib/express-async-await-error-handler')
