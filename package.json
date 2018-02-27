@@ -1,0 +1,34 @@
+{
+  "name": "express-async-await-errors",
+  "version": "1.0.0",
+  "description": "Add error handling for async routes on express",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --bail --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guisehn/express-async-await-errors.git"
+  },
+  "devDependencies": {
+    "mocha": "^5.0.1",
+    "sinon": "^4.4.2"
+  },
+  "author": "Guilherme Sehn <ghsehn@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guisehn/express-async-await-errors/issues"
+  },
+  "homepage": "https://github.com/guisehn/express-async-await-errors#readme",
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it"
+    ]
+  }
+}
