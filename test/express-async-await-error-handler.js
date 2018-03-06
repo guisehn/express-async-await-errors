@@ -45,10 +45,10 @@ describe('ExpressAsyncAwaitErrorHandler', () => {
 
     beforeEach(() => {
       spy = sinon.spy()
-      routerStub = { get: spy, post: spy, put: spy, delete: spy }
+      routerStub = { get: spy, post: spy, put: spy, patch: spy, delete: spy }
     })
 
-    const verbs = ['get', 'post', 'put', 'delete']
+    const verbs = ['get', 'post', 'put', 'patch', 'delete']
     verbs.forEach(verb => {
       it(`should modify async functions for ${verb.toUpperCase()} calls`, () => {
         const fn1 = () => { }
