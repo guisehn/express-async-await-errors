@@ -44,7 +44,7 @@ describe('ExpressAsyncAwaitErrorHandler', () => {
     let routerStub
 
     beforeEach(() => {
-      spy = sinon.spy()
+      spy = sinon.spy(() => 'original return value')
       routerStub = { get: spy, post: spy, put: spy, patch: spy, delete: spy }
     })
 
@@ -56,13 +56,14 @@ describe('ExpressAsyncAwaitErrorHandler', () => {
         const fn3 = async () => { }
 
         catchAsyncErrorsOnRouter(routerStub)
-        routerStub[verb]('/route', fn1, fn2, fn3)
+        const returnedValue = routerStub[verb]('/route', fn1, fn2, fn3)
+        assert.strictEqual(returnedValue, 'original return value')
 
         assert(spy.called)
-        assert.equal(spy.args[0][0], '/route')
-        assert.equal(spy.args[0][1], fn1)
-        assert.notEqual(spy.args[0][2], fn2)
-        assert.notEqual(spy.args[0][3], fn3)
+        assert.strictEqual(spy.args[0][0], '/route')
+        assert.strictEqual(spy.args[0][1], fn1)
+        assert.notStrictEqual(spy.args[0][2], fn2)
+        assert.notStrictEqual(spy.args[0][3], fn3)
       })
     })
   })
