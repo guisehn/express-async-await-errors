@@ -8,7 +8,7 @@ Make [Express.js](https://expressjs.com/) handle async errors graciously.
 
 ## Usage
 
-```
+```js
 'use strict'
 
 const express = require('express')
